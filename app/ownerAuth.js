@@ -2,13 +2,13 @@
 
 import { Alert, AsyncStorage } from "react-native";
 
-export const OWNER_KEY = "auth-demo-key";
+export const OWNER_KEY = "auth-demo-owner-key";
 
 export const onSignIn = () => AsyncStorage.setItem(OWNER_KEY, "true");
 
 export const onSignOut = () => AsyncStorage.removeItem(OWNER_KEY);
 
-export const isSignedIn = () => {
+export const isOwnerSignedIn = () => {
 	return new Promise((resolve, reject) => {
 		AsyncStorage.getItem(OWNER_KEY)
 			.then(res => {
@@ -21,10 +21,3 @@ export const isSignedIn = () => {
 			.catch(err => reject(err));
 	});
 };
-
-
-
-
-
-
-

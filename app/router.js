@@ -17,7 +17,7 @@ import OwnerDeals from './ownerScreens/OwnerDeals';
 import Statistics from './ownerScreens/Statistics';
 
 
-export const createRootNavigator = (signedIn = false) => {
+export const createRootNavigator = (signedIn = false, ownerSignedIn = false) => {
   return createSwitchNavigator(
     {
       SignedIn: {
@@ -25,11 +25,30 @@ export const createRootNavigator = (signedIn = false) => {
       },
       SignedOut: {
         screen: SignedOut
-      }
+      },
+      SignedInTabOwner: {
+        screen: SignedInTabOwner
+      },
     },
     {
-      initialRouteName: signedIn ? "SignedIn" : "SignedOut"
+      /*
+      if(signedIn){
+        x = "SignedIn"
+      } else if (ownerSignedIn) {
+        x = "SignedInTabOwner"
+      } else {
+        x = "SignedOut"
+      }
+      */
+      //initialRouteName:x
+      initialRouteName: signedIn ? "SignedIn" : ownerSignedIn ? "SignedInTabOwner" : "SignedOut"
+      /*
+      initialRouteName: {if (ownerSignedIn) { "SignedInTabOwner"}
+      else if (signedIn) { "SignedIn"}
+      else { "SignedOut"}}
+      //initialRouteName: signedIn ? "SignedIn" : "SignedOut"
       // initialRouteName: signedIn ? "SignedOut" : "SignedOut"
+      */
     }
   );
 };

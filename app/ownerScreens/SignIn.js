@@ -44,7 +44,7 @@ export default class SignIn extends Component {
 			if (resp == 'Yoa are logged in') {
 				Alert.alert("Hey " + username + " You are logged in");
 				console.log("You are logged in");
-				onSignIn().then(() => navigation.navigate("OwnerSignedIn"));
+				onSignIn().then(() => navigation.navigate("SignedInTabOwner"));
 			} else {
 				Alert.alert("username - " + username + " or password - " + password + " is wrong");
 				console.log(resp);

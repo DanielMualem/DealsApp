@@ -48,7 +48,7 @@ export default class AddDeal extends Component {
 					<FormInput placeholder="Details" onChangeText={this.handleDetails} />
 					<Button
 						buttonStyle={{ marginTop: 20 }}
-						backgroundColor="#1A535C"
+						backgroundColor="#03A9F4"
 						title="ADD DEAL"
 						onPress={() => this.adddealfunc()}
 					/>
