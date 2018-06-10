@@ -27,7 +27,7 @@ export default class SignIn extends Component {
 	login = () => {
 		const { navigation, username, password } = this.state;
 
-		fetch('http://35.198.155.182/storeOwner/login', {
+		fetch('https://dealsapp.online/storeOwner/login', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -44,7 +44,7 @@ export default class SignIn extends Component {
 			if (resp == 'Yoa are logged in') {
 				Alert.alert("Hey " + username + " You are logged in");
 				console.log("You are logged in");
-				onSignIn().then(() => navigation.navigate("SignedIn"));
+				onSignIn().then(() => navigation.navigate("OwnerSignedIn"));
 			} else {
 				Alert.alert("username - " + username + " or password - " + password + " is wrong");
 				console.log(resp);
@@ -69,6 +69,13 @@ export default class SignIn extends Component {
 						backgroundColor="#03A9F4"
 						title="SIGN IN"
 						onPress={() => this.login()}
+					/>
+					<Button
+						buttonStyle={{ marginTop: 20 }}
+						backgroundColor="transparent"
+						textStyle={{ color: "#bcbec1" }}
+						title="Sign Up"
+						onPress={() => this.props.navigation.navigate("OwnerSignUp")}
 					/>
 				</Card>
 			</View>

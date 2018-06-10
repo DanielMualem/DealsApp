@@ -9,8 +9,8 @@ import {
 import { StackNavigator } from 'react-navigation';
 import { Card, Button } from "react-native-elements";
 import ActionButton from 'react-native-action-button';
-import DealRow from './DealRow';
-import DealDetails from './DealDetails';
+import DealRow from '../clientScreens/DealRow';
+import DealDetails from '../clientScreens/DealDetails';
 import { onSignOut } from "../auth";
 
 const demoData = [
@@ -152,6 +152,10 @@ export default class AllDeals extends Component {
             />
           }
         />
+        <ActionButton
+         buttonColor="rgba(231,76,60,1)"
+         onPress={() => { this.props.navigation.navigate("AddDeal");}}
+       />
       </View>
     );
   }

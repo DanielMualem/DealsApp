@@ -19,7 +19,7 @@ export default class AddDeal extends Component {
 	adddealfunc = () => {
 		const { navigation, details} = this.state;
 
-		fetch('http://35.198.155.182/storeOwner/AddDeal', {
+		fetch('https://dealsapp.online/storeOwner/AddDeal', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -48,7 +48,7 @@ export default class AddDeal extends Component {
 					<FormInput placeholder="Details" onChangeText={this.handleDetails} />
 					<Button
 						buttonStyle={{ marginTop: 20 }}
-						backgroundColor="#03A9F4"
+						backgroundColor="#1A535C"
 						title="ADD DEAL"
 						onPress={() => this.adddealfunc()}
 					/>

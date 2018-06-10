@@ -25,7 +25,7 @@ export default class SignIn extends Component {
 	login = () => {
 		const { navigation, username, password } = this.state;
 
-		fetch('http://35.233.48.158/login', {
+		fetch('https://dealsapp.online/login', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',

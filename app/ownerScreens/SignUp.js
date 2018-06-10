@@ -41,7 +41,7 @@ export default class SignIn extends Component {
   login = () => {
 		const { navigation, username, password } = this.state;
 
-		fetch('http://35.198.155.182/storeOwner/login', {
+		fetch('https://dealsapp.online/storeOwner/login', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -77,7 +77,7 @@ export default class SignIn extends Component {
       return;
     }
 
-    fetch('http://35.198.155.182/storeOwner/register', {
+    fetch('https://dealsapp.online/storeOwner/register', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

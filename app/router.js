@@ -1,7 +1,7 @@
 
 // app/router.js
 import React, {Component} from 'react';
-import { createStackNavigator, TabNavigator, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator, createTabNavigator, createSwitchNavigator } from "react-navigation";
 import { Card, Button, Text } from "react-native-elements";
 import { onSignOut } from "./auth";
 
@@ -13,6 +13,8 @@ import AddDeal from "./ownerScreens/AddDeal"
 import DealRow from './clientScreens/DealRow';
 import DealDetails from './clientScreens/DealDetails';
 import AllDeals from './clientScreens/AllDeals';
+import OwnerDeals from './ownerScreens/OwnerDeals';
+import Statistics from './ownerScreens/Statistics';
 
 
 export const createRootNavigator = (signedIn = false) => {
@@ -53,14 +55,12 @@ export const SignedOut = createStackNavigator({
       title: "Owner Sign In"
     }
   },
-/*
   OwnerSignUp: {
     screen: OwnerSignUp,
     navigationOptions: {
       title: "Owner Sign Up"
     }
   }
-  */
 });
 
 
@@ -82,6 +82,48 @@ export const SignedIn = createStackNavigator({
     screen: AddDeal,
     navigationOptions: {
       title: "AddDeal"
+    }
+  }
+});
+
+export const OwnerSignedIn = createStackNavigator({
+  Deals: {
+    screen: OwnerDeals,
+    navigationOptions: {
+      title: "Deals",
+    }
+  },
+  Deal: {
+    screen: DealDetails,
+    navigationOptions: {
+      title: "Deal"
+    }
+  },
+  AddDeal: {
+    screen: AddDeal,
+    navigationOptions: {
+      title: "AddDeal"
+    }
+  }
+});
+
+export const SignedInTabOwner = createTabNavigator({
+  OwnerDeals: {
+    screen: OwnerSignedIn,
+    navigationOptions: {
+      title: "My Deals",
+    }
+  },
+  Statistics: {
+    screen: Statistics,
+    navigationOptions: {
+      title: "Statistics"
+    }
+  },
+  AllDeals: {
+    screen: SignedIn,
+    navigationOptions: {
+      title: "All Deals"
     }
   }
 });
