@@ -60,7 +60,7 @@ export default class SignIn extends Component {
 				console.log("You are logged in");
 				onSignIn().then(() => navigation.navigate("SignedIn"));
 			} else {
-				Alert.alert("username - " + username + " or password - " + password + " is wrong");
+				Alert.alert("שם משתמש או אימייל קיים");
 				console.log(resp);
 			}
 		})

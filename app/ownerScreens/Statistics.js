@@ -5,9 +5,11 @@ export default class Statistics extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <ScrollView>
         <Text style={styles.welcome}>
           To be continued...
         </Text>
+      </ScrollView>
       </View>
     );
   }

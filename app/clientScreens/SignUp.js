@@ -84,7 +84,7 @@ export default class SignIn extends Component {
           )
           console.log("registered successfully!");
         } else {
-          Alert.alert("The username is not available");
+          Alert.alert("שם משתמש או אימייל קיים");
           console.log("registered failed");
         }
       })
@@ -98,20 +98,22 @@ export default class SignIn extends Component {
   render() {
     return (
       <View style={{ paddingVertical: 20 }}>
-        <Card title="CLIENT - SIGN UP">
-          <FormLabel>Email</FormLabel>
-          <FormInput placeholder="Email address" onChangeText={this.handleEmail} />
-          <FormLabel>Username</FormLabel>
-          <FormInput placeholder="Username" onChangeText={this.handleUsername} />
-          <FormLabel>Password</FormLabel>
-          <FormInput secureTextEntry placeholder="Password" onChangeText={this.handlePassword} />
+      <ScrollView>
+        <Card title="הרשמה">
+          <FormLabel>כתובת אימייל</FormLabel>
+          <FormInput placeholder="כתובת אימייל" onChangeText={this.handleEmail} />
+          <FormLabel>שם משתמש</FormLabel>
+          <FormInput placeholder="שם משתמש" onChangeText={this.handleUsername} />
+          <FormLabel>סיסמה</FormLabel>
+          <FormInput secureTextEntry placeholder="סיסמה" onChangeText={this.handlePassword} />
           <Button
             buttonStyle={{ marginTop: 20 }}
             backgroundColor="#03A9F4"
-            title="SIGN UP"
+            title="הרשמה"
             onPress={() => this.SignUp()}
           />
         </Card>
+      </ScrollView>
       </View>
     );
   }

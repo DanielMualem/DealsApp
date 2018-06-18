@@ -59,25 +59,25 @@ export const SignedOut = createStackNavigator({
   SignIn: {
     screen: SignIn,
     navigationOptions: {
-      title: "Sign In"
+      title: "כניסה"
     }
   },
   SignUp: {
     screen: SignUp,
     navigationOptions: {
-      title: "Sign Up"
+      title: "הרשמה"
     }
   },
   OwnerSignIn: {
     screen: OwnerSignIn,
     navigationOptions: {
-      title: "Owner Sign In"
+      title: "כניסה - בעל מסעדה"
     }
   },
   OwnerSignUp: {
     screen: OwnerSignUp,
     navigationOptions: {
-      title: "Owner Sign Up"
+      title: "הרשמה - בעל מסעדה"
     }
   }
 });
@@ -88,13 +88,13 @@ export const SignedIn = createStackNavigator({
   Deals: {
     screen: AllDeals,
     navigationOptions: {
-      title: "Deals",
+      title: "מבצעים",
     }
   },
   Deal: {
     screen: DealDetails,
     navigationOptions: {
-      title: "Deal"
+      title: "פרטי מבצע"
     }
   },
   AddDeal: {
@@ -109,19 +109,19 @@ export const OwnerSignedIn = createStackNavigator({
   Deals: {
     screen: OwnerDeals,
     navigationOptions: {
-      title: "Deals",
+      title: " מבצעים",
     }
   },
   Deal: {
     screen: DealDetails,
     navigationOptions: {
-      title: "Deal"
+      title: "פרטי מבצע"
     }
   },
   AddDeal: {
     screen: AddDeal,
     navigationOptions: {
-      title: "AddDeal"
+      title: "הוספת מבצע"
     }
   }
 });
@@ -130,19 +130,19 @@ export const SignedInTabOwner = createTabNavigator({
   OwnerDeals: {
     screen: OwnerSignedIn,
     navigationOptions: {
-      title: "My Deals",
+      title: "המבצעים שלי",
     }
   },
   Statistics: {
     screen: Statistics,
     navigationOptions: {
-      title: "Statistics"
+      title: "סטטיסטיקה"
     }
   },
   AllDeals: {
     screen: SignedIn,
     navigationOptions: {
-      title: "All Deals"
+      title: "כל המבצעים"
     }
   }
 });

@@ -11,26 +11,20 @@ import { Card, Button } from "react-native-elements";
 import ActionButton from 'react-native-action-button';
 import DealRow from '../clientScreens/DealRow';
 import DealDetails from '../clientScreens/DealDetails';
-import { onSignOut } from "../auth";
+import { onSignOut } from "../ownerAuth";
 
 const demoData = [
   {
-    storeName: 'BBB',
-    preview: '1+1 on all meals',
-    image: require('../images/bbb.jpg'),
-    details: "1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals ",
+    storeName: 'Deli Cream - דלי קרים',
+    preview: 'כדור גלידה מתנה בקניית קרפ צרפתי',
+    image: require('../images/deli_cream.jpg'),
+    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
   },
   {
-    storeName: 'Aroma',
-    preview: '50% OFF everything',
-    image: require('../images/aroma.jpg'),
-    details: "bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla   ",
-  },
-  {
-    storeName: 'Humus Medames',
-    preview: '20% OFF meals',
-    image: require('../images/medames.jpg'),
-    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
+    storeName: 'Deli Cream - דלי קרים',
+    preview: '10% על כל סוגי הגלידות',
+    image: require('../images/deli_cream.jpg'),
+    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
   },
   {
     storeName: 'Deli Cream',
@@ -69,11 +63,11 @@ export default class AllDeals extends Component {
   static navigationOptions = ({ navigation }) => {
 
     return {
-      headerTitle: "Deals",
+      headerTitle: "המבצעים שלי",
       headerRight: (
         <Button
         onPress={() => onSignOut().then(() => navigation.navigate("SignedOut"))}
-        title = "Log Out"
+        title = " התנתק"
         color = "#03A9F4"
         backgroundColor = "transparent"
         />
@@ -104,7 +98,7 @@ export default class AllDeals extends Component {
   /**
    * Prepare demo data for ListView component
    */
-   fetchData = () => {
+   fetchData_temp = () => {
     // Data is being refreshed
     this.setState({ isRefreshing: true });
     this.setState({
@@ -113,6 +107,25 @@ export default class AllDeals extends Component {
       // Data has been refreshed by now
       isRefreshing: false,
     });
+  }
+
+  fetchData = () => {
+    fetch('https://dealsapp.online/deals')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        //fetch('https://dealsapp.online/deals')
+        this.setState({ isRefreshing: true });
+        this.setState({
+          // Fill up DataSource with demo data
+          dataSource: this.state.dataSource.cloneWithRows(responseJson),
+          // Data has been refreshed by now
+          isRefreshing: false,
+        });
+        //console.log(responseJson[0]["storeID"]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   /**
@@ -153,7 +166,7 @@ export default class AllDeals extends Component {
           }
         />
         <ActionButton
-         buttonColor="rgba(231,76,60,1)"
+         buttonColor="#03A9F4"
          onPress={() => { this.props.navigation.navigate("AddDeal");}}
        />
       </View>

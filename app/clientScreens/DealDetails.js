@@ -12,11 +12,22 @@ export default class DealDetails extends React.Component {
 
     return (
       <View style={{ paddingVertical: 20 }}>
-        <Card title={deal.storeName} image={deal.image}>
+        <ScrollView>
+        <Card title={deal.storeID["name"]} image={require('../images/medames.jpg')}>
 
-          <Text>{deal.details}</Text>
+          <Text style={{ marginBottom: 30, textAlign:'right' }}>{deal.details}</Text>
+          <Text style={{ marginBottom: 15, textAlign:'center', fontWeight: 'bold' }}>זמן לסיום - 19:59</Text>
+          <Button style={{ marginBottom: 15}}
+          backgroundColor="#03A9F4"
+          title="הזמנת מבצע"
+          />
+          <Button
+          backgroundColor="#03A9F4"
+          title="ניווט"
+          />
 
         </Card>
+        </ScrollView>
       </View>
     );
   }

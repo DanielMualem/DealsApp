@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, TextInput, View, StyleSheet } from "react-native";
+import { Alert, TextInput, View, StyleSheet, ScrollView } from "react-native";
 import { Card, Button, FormLabel, FormInput } from "react-native-elements";
 import { onSignIn } from "../ownerAuth";
 import Promise from 'bluebird'
@@ -42,11 +42,11 @@ export default class SignIn extends Component {
 		.then((resp) => {
 			//console.log(resp);
 			if (resp == 'Yoa are logged in') {
-				Alert.alert("Hey " + username + " You are logged in");
+				//Alert.alert("Hey " + username + " You are logged in");
 				console.log("You are logged in");
 				onSignIn().then(() => navigation.navigate("SignedInTabOwner"));
 			} else {
-				Alert.alert("username - " + username + " or password - " + password + " is wrong");
+				Alert.alert("שם משתמש או סיסמה לא נכונים");
 				console.log(resp);
 			}
 		})
@@ -58,26 +58,28 @@ export default class SignIn extends Component {
 	render() {
 		return (
 			<View style={{ paddingVertical: 20 }}>
-				<Card title="OWNER - SIGN IN">
-					<FormLabel>Username</FormLabel>
-					<FormInput placeholder="Username" onChangeText= {this.handleUsername} />
-					<FormLabel>Password</FormLabel>
-					<FormInput secureTextEntry placeholder="Password" onChangeText={(password) => this.setState({ password })} />
+			<ScrollView>
+				<Card title="כניסה - בעל מסעדה">
+					<FormLabel>שם משתמש</FormLabel>
+					<FormInput placeholder="שם משתמש" onChangeText= {this.handleUsername} />
+					<FormLabel>סיסמה</FormLabel>
+					<FormInput secureTextEntry placeholder="סיסמה" onChangeText={(password) => this.setState({ password })} />
 
 					<Button
 						buttonStyle={{ marginTop: 20 }}
 						backgroundColor="#03A9F4"
-						title="SIGN IN"
+						title="התחבר"
 						onPress={() => this.login()}
 					/>
 					<Button
 						buttonStyle={{ marginTop: 20 }}
 						backgroundColor="transparent"
 						textStyle={{ color: "#bcbec1" }}
-						title="Sign Up"
+						title="הרשמה"
 						onPress={() => this.props.navigation.navigate("OwnerSignUp")}
 					/>
 				</Card>
+			</ScrollView>
 			</View>
 		);
 	}
