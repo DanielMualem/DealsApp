@@ -71,13 +71,7 @@ export default class SignIn extends Component {
 						title="התחבר"
 						onPress={() => this.login()}
 					/>
-					<Button
-						buttonStyle={{ marginTop: 20 }}
-						backgroundColor="transparent"
-						textStyle={{ color: "#bcbec1" }}
-						title="הרשמה"
-						onPress={() => this.props.navigation.navigate("OwnerSignUp")}
-					/>
+
 				</Card>
 			</ScrollView>
 			</View>

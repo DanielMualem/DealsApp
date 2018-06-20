@@ -97,10 +97,22 @@ export const SignedIn = createStackNavigator({
       title: "פרטי מבצע"
     }
   },
+});
+
+export const AddDealStack = createStackNavigator({
   AddDeal: {
     screen: AddDeal,
     navigationOptions: {
-      title: "AddDeal"
+      title: "הוסף מבצע"
+    }
+  }
+});
+
+export const StatisticsStack = createStackNavigator({
+  Statistics: {
+    screen: Statistics,
+    navigationOptions: {
+      title: "סטטיסטיקה"
     }
   }
 });
@@ -117,12 +129,6 @@ export const OwnerSignedIn = createStackNavigator({
     navigationOptions: {
       title: "פרטי מבצע"
     }
-  },
-  AddDeal: {
-    screen: AddDeal,
-    navigationOptions: {
-      title: "הוספת מבצע"
-    }
   }
 });
 
@@ -133,8 +139,14 @@ export const SignedInTabOwner = createTabNavigator({
       title: "המבצעים שלי",
     }
   },
+  AddDeal: {
+    screen: AddDealStack,
+    navigationOptions: {
+      title: "הוספת מבצע"
+    }
+  },
   Statistics: {
-    screen: Statistics,
+    screen: StatisticsStack,
     navigationOptions: {
       title: "סטטיסטיקה"
     }

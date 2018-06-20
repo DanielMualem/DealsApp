@@ -18,10 +18,21 @@ export default class DealRow extends Component {
   // Extract movie and onPress props passed from List component
     render({ deal, onPress } = this.props) {
       // Extract values from movie object
-      const { storeID, preview, details, imgID } = deal;
+      const { storeID, preview, details, imgID, path } = deal;
+      var image;
+      switch (`${storeID["name"]}`) {
+        case "Hummus Medames - חומוס מדאמס":
+          image = require('../images/medames.jpg');
+          break;
+        case "Kan Kai":
+          image = require('../images/kan_kai.jpg');
+          break;
+        default:
+          break;
+      }
       return (
 
-        <Card title={`${storeID["name"]}`} image={require('../images/medames.jpg')} key={storeID["name"]}
+        <Card title={`${storeID["name"]}`} image={image} key={storeID["name"]}
 
         >
           <Text style={{ marginBottom: 15, textAlign:'center' }}>

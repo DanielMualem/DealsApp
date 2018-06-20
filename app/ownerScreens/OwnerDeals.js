@@ -4,7 +4,8 @@ import {
   Image,
   ListView,       // Renders a list
   RefreshControl, // Refreshes the list on pull down
-  Text
+  Text,
+  ScrollView
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Card, Button } from "react-native-elements";
@@ -13,50 +14,6 @@ import DealRow from '../clientScreens/DealRow';
 import DealDetails from '../clientScreens/DealDetails';
 import { onSignOut } from "../ownerAuth";
 
-const demoData = [
-  {
-    storeName: 'Deli Cream - דלי קרים',
-    preview: 'כדור גלידה מתנה בקניית קרפ צרפתי',
-    image: require('../images/deli_cream.jpg'),
-    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
-  },
-  {
-    storeName: 'Deli Cream - דלי קרים',
-    preview: '10% על כל סוגי הגלידות',
-    image: require('../images/deli_cream.jpg'),
-    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
-  },
-  {
-    storeName: 'Deli Cream',
-    preview: '1+1 on all ice creams',
-    image: require('../images/deli_cream.jpg'),
-    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
-  },
-  {
-    storeName: 'BBB',
-    preview: '1+1 on all meals',
-    image: require('../images/bbb.jpg'),
-    details: "1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals 1+1 on all meals ",
-  },
-  {
-    storeName: 'Aroma',
-    preview: '50% OFF everything',
-    image: require('../images/aroma.jpg'),
-    details: "bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla bla  bla  bla  bla  bla  bla  bla  bla  bla  bla  bla   ",
-  },
-  {
-    storeName: 'Humus Medames',
-    preview: '20% OFF meals',
-    image: require('../images/medames.jpg'),
-    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
-  },
-  {
-    storeName: 'Deli Cream',
-    preview: '1+1 on all ice creams',
-    image: require('../images/deli_cream.jpg'),
-    details: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ",
-  },
-];
 
 export default class AllDeals extends Component {
 
@@ -66,8 +23,11 @@ export default class AllDeals extends Component {
       headerTitle: "המבצעים שלי",
       headerRight: (
         <Button
-        onPress={() => onSignOut().then(() => navigation.navigate("SignedOut"))}
-        title = " התנתק"
+        onPress={() => onSignOut().then(() => {
+          fetch('https://dealsapp.online/storeOwner/logout');
+          navigation.navigate("SignedOut");
+        })}
+        title = "התנתק"
         color = "#03A9F4"
         backgroundColor = "transparent"
         />
@@ -110,9 +70,10 @@ export default class AllDeals extends Component {
   }
 
   fetchData = () => {
-    fetch('https://dealsapp.online/deals')
+    fetch('https://dealsapp.online/storeOwner/getDeals')
       .then((response) => response.json())
       .then((responseJson) => {
+        console.log(responseJson);
         //fetch('https://dealsapp.online/deals')
         this.setState({ isRefreshing: true });
         this.setState({
@@ -150,7 +111,8 @@ export default class AllDeals extends Component {
    */
   render() {
     return (
-      <View >
+
+      <View>
         <ListView
 
           // Data source from state
@@ -160,15 +122,12 @@ export default class AllDeals extends Component {
           // Refresh the list on pull down
           refreshControl={
             <RefreshControl
-              refreshing={this.state.isRefreshing}
+              refreshing={false}
               onRefresh={this.fetchData}
             />
           }
         />
-        <ActionButton
-         buttonColor="#03A9F4"
-         onPress={() => { this.props.navigation.navigate("AddDeal");}}
-       />
+
       </View>
     );
   }

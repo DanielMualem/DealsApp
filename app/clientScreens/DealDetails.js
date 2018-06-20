@@ -9,14 +9,23 @@ export default class DealDetails extends React.Component {
     //const { name, image, url, key } = deal;
     const { params } = this.props.navigation.state;
     const deal = params.deal;
-
+    var image;
+    switch (deal.storeID["name"]) {
+      case "Hummus Medames - חומוס מדאמס":
+        image = require('../images/medames.jpg');
+        break;
+      case "Kan Kai":
+        image = require('../images/kan_kai.jpg');
+        break;
+      default:
+        break;
+    }
     return (
       <View style={{ paddingVertical: 20 }}>
         <ScrollView>
-        <Card title={deal.storeID["name"]} image={require('../images/medames.jpg')}>
+        <Card title={deal.storeID["name"]} image={image}>
 
           <Text style={{ marginBottom: 30, textAlign:'right' }}>{deal.details}</Text>
-          <Text style={{ marginBottom: 15, textAlign:'center', fontWeight: 'bold' }}>זמן לסיום - 19:59</Text>
           <Button style={{ marginBottom: 15}}
           backgroundColor="#03A9F4"
           title="הזמנת מבצע"

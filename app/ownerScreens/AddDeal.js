@@ -7,6 +7,7 @@ export default class AddDeal extends Component {
 		super(props);
 		this.state = {
 			navigation: props.navigation,
+			preview: '',
 			details: ''
 		};
 	}
@@ -16,8 +17,12 @@ export default class AddDeal extends Component {
 		this.setState({ details: text })
 	}
 
+	handlePreview = (text) => {
+		this.setState({ preview: text })
+	}
+
 	adddealfunc = () => {
-		const { navigation, details} = this.state;
+		const { navigation,preview, details } = this.state;
 
 		fetch('https://dealsapp.online/storeOwner/AddDeal', {
 			method: 'POST',
@@ -26,6 +31,7 @@ export default class AddDeal extends Component {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
+				preview: preview,
 				details: details,
 			}),
 		})
@@ -33,7 +39,8 @@ export default class AddDeal extends Component {
 		.then((resp) => {
 			console.log(resp);
 			Alert.alert("Added Successfully");
-			this.props.navigation.goBack();
+			this.props.navigation.navigate('OwnerDeals');
+			this.setState({ details: '', preview: '' });
 		})
 		.catch((error) => {
 			console.error(error);
@@ -45,8 +52,12 @@ export default class AddDeal extends Component {
 			<View style={{ paddingVertical: 20 }}>
 			<ScrollView>
 				<Card title="הוספת מבצע">
-					<FormLabel>פרטי מבצע</FormLabel>
-					<FormInput placeholder="פרטי מבצע" onChangeText={this.handleDetails} />
+
+					<FormLabel>תקציר המבצע</FormLabel>
+					<FormInput placeholder="תקציר המבצע" value={this.state.preview} onChangeText={this.handlePreview} />
+					<FormLabel>פרטי מבצע מלאים</FormLabel>
+					<FormInput placeholder="פרטי מבצע מלאים" value={this.state.details} onChangeText={this.handleDetails} />
+
 					<Button
 						buttonStyle={{ marginTop: 20 }}
 						backgroundColor="#03A9F4"
