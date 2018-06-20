@@ -15,6 +15,7 @@ import DealDetails from './clientScreens/DealDetails';
 import AllDeals from './clientScreens/AllDeals';
 import OwnerDeals from './ownerScreens/OwnerDeals';
 import Statistics from './ownerScreens/Statistics';
+import DealDetailsOwner from './ownerScreens/DealDetailsOwner';
 
 
 export const createRootNavigator = (signedIn = false, ownerSignedIn = false) => {
@@ -125,7 +126,7 @@ export const OwnerSignedIn = createStackNavigator({
     }
   },
   Deal: {
-    screen: DealDetails,
+    screen: DealDetailsOwner,
     navigationOptions: {
       title: "פרטי מבצע"
     }

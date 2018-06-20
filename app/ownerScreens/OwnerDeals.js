@@ -5,13 +5,14 @@ import {
   ListView,       // Renders a list
   RefreshControl, // Refreshes the list on pull down
   Text,
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Card, Button } from "react-native-elements";
 import ActionButton from 'react-native-action-button';
 import DealRow from '../clientScreens/DealRow';
-import DealDetails from '../clientScreens/DealDetails';
+import DealDetailsOwner from './DealDetailsOwner';
 import { onSignOut } from "../ownerAuth";
 
 
@@ -82,6 +83,9 @@ export default class AllDeals extends Component {
           // Data has been refreshed by now
           isRefreshing: false,
         });
+        if (Object.keys(responseJson).length < 1) {
+          Alert.alert("אין מבצעים כעת, רענן לעדכון");
+        }
         //console.log(responseJson[0]["storeID"]);
       })
       .catch((error) => {
@@ -112,7 +116,7 @@ export default class AllDeals extends Component {
   render() {
     return (
 
-      <View>
+
         <ListView
 
           // Data source from state
@@ -128,7 +132,6 @@ export default class AllDeals extends Component {
           }
         />
 
-      </View>
     );
   }
 }

@@ -14,11 +14,15 @@ export default class AddDeal extends Component {
 
 
 	handleDetails = (text) => {
-		this.setState({ details: text })
+		this.setState({ details: text });
 	}
 
 	handlePreview = (text) => {
-		this.setState({ preview: text })
+		this.setState({ preview: text });
+	}
+
+	deleteAll = () => {
+		fetch('https://dealsapp.online/storeOwner/deleteAllDeals');
 	}
 
 	adddealfunc = () => {
@@ -54,9 +58,9 @@ export default class AddDeal extends Component {
 				<Card title="הוספת מבצע">
 
 					<FormLabel>תקציר המבצע</FormLabel>
-					<FormInput placeholder="תקציר המבצע" value={this.state.preview} onChangeText={this.handlePreview} />
+					<FormInput multiline = {true} placeholder="תקציר המבצע" value={this.state.preview} onChangeText={this.handlePreview} />
 					<FormLabel>פרטי מבצע מלאים</FormLabel>
-					<FormInput placeholder="פרטי מבצע מלאים" value={this.state.details} onChangeText={this.handleDetails} />
+					<FormInput multiline = {true} placeholder="פרטי מבצע מלאים" value={this.state.details} onChangeText={this.handleDetails} />
 
 					<Button
 						buttonStyle={{ marginTop: 20 }}

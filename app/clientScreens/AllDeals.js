@@ -4,7 +4,8 @@ import {
   Image,
   ListView,       // Renders a list
   RefreshControl, // Refreshes the list on pull down
-  Text
+  Text,
+  Alert
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Card, Button } from "react-native-elements";
@@ -118,7 +119,6 @@ export default class AllDeals extends Component {
    */
   render() {
     return (
-      <View >
         <ListView
 
           // Data source from state
@@ -133,7 +133,6 @@ export default class AllDeals extends Component {
             />
           }
         />
-      </View>
     );
   }
 }
