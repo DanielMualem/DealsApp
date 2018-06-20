@@ -61,9 +61,9 @@ export default class SignIn extends Component {
 			<ScrollView>
 				<Card title="כניסה - בעל מסעדה">
 					<FormLabel>שם משתמש</FormLabel>
-					<FormInput placeholder="שם משתמש" onChangeText= {this.handleUsername} />
+					<FormInput placeholder="" onChangeText= {this.handleUsername} />
 					<FormLabel>סיסמה</FormLabel>
-					<FormInput secureTextEntry placeholder="סיסמה" onChangeText={(password) => this.setState({ password })} />
+					<FormInput secureTextEntry placeholder="" onChangeText={(password) => this.setState({ password })} />
 
 					<Button
 						buttonStyle={{ marginTop: 20 }}

@@ -59,10 +59,10 @@ export default class SignIn extends Component {
 			<View style={{ paddingVertical: 20 }}>
 				<ScrollView>
 				<Card title="כניסה">
-					<FormLabel style={{ marginBottom: 30, textAlign:'right' }}>שם משתמש</FormLabel>
-					<FormInput placeholder="שם משתמש" onChangeText={this.handleUsername} />
+					<FormLabel>שם משתמש</FormLabel>
+					<FormInput placeholder="" onChangeText={this.handleUsername} />
 					<FormLabel>סיסמה</FormLabel>
-					<FormInput secureTextEntry placeholder="סיסמה" onChangeText={this.handlePassword} />
+					<FormInput secureTextEntry placeholder="" onChangeText={this.handlePassword} />
 					<Button
 						buttonStyle={{ marginTop: 20 }}
 						backgroundColor="#03A9F4"

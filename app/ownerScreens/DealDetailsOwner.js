@@ -38,6 +38,15 @@ export default class DealDetails extends React.Component {
       case "Kan Kai":
         image = require('../images/kan_kai.jpg');
         break;
+      case "נוגטין - nugetin":
+        image = require('../images/nugetin.jpg');
+        break;
+      case "שניצליין - Schnitzeline":
+        image = require('../images/schnitzeline.png');
+        break;
+      case "בורגרס בר - burgers bar":
+        image = require('../images/burgers-bar.png');
+        break;
       default:
         break;
     }
@@ -52,6 +61,7 @@ export default class DealDetails extends React.Component {
           title="הזמנת מבצע"
           />
           <Button
+          buttonStyle={{ marginTop: 20 }}
           backgroundColor="#03A9F4"
           title="ניווט"
           />

@@ -58,9 +58,9 @@ export default class AddDeal extends Component {
 				<Card title="הוספת מבצע">
 
 					<FormLabel>תקציר המבצע</FormLabel>
-					<FormInput multiline = {true} placeholder="תקציר המבצע" value={this.state.preview} onChangeText={this.handlePreview} />
+					<FormInput multiline = {true} placeholder="" value={this.state.preview} onChangeText={this.handlePreview} />
 					<FormLabel>פרטי מבצע מלאים</FormLabel>
-					<FormInput multiline = {true} placeholder="פרטי מבצע מלאים" value={this.state.details} onChangeText={this.handleDetails} />
+					<FormInput multiline = {true} placeholder="" value={this.state.details} onChangeText={this.handleDetails} />
 
 					<Button
 						buttonStyle={{ marginTop: 20 }}
