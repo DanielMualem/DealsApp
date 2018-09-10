@@ -53,14 +53,14 @@ export default class AddDeal extends Component {
 
 	render() {
 		return (
-			<View style={{ paddingVertical: 20 }}>
+			<View style={{ paddingVertical: 1 }}>
 			<ScrollView>
 				<Card title="הוספת מבצע">
 
 					<FormLabel>תקציר המבצע</FormLabel>
-					<FormInput multiline = {true} placeholder="" value={this.state.preview} onChangeText={this.handlePreview} />
+					<FormInput multiline = {true} placeholder="" value={this.state.preview} onChangeText={this.handlePreview} inputStyle={{ width: "100%" }}/>
 					<FormLabel>פרטי מבצע מלאים</FormLabel>
-					<FormInput multiline = {true} placeholder="" value={this.state.details} onChangeText={this.handleDetails} />
+					<FormInput multiline = {true} placeholder="" value={this.state.details} onChangeText={this.handleDetails} inputStyle={{ width: "100%" }}/>
 
 					<Button
 						buttonStyle={{ marginTop: 20 }}

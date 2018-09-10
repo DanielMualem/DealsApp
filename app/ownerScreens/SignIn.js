@@ -57,13 +57,13 @@ export default class SignIn extends Component {
 
 	render() {
 		return (
-			<View style={{ paddingVertical: 20 }}>
+			<View style={{ paddingVertical: 1 }}>
 			<ScrollView>
 				<Card title="כניסה - בעל מסעדה">
 					<FormLabel>שם משתמש</FormLabel>
-					<FormInput placeholder="" onChangeText= {this.handleUsername} />
+					<FormInput placeholder="" onChangeText= {this.handleUsername} inputStyle={{ width: "100%" }}/>
 					<FormLabel>סיסמה</FormLabel>
-					<FormInput secureTextEntry placeholder="" onChangeText={(password) => this.setState({ password })} />
+					<FormInput secureTextEntry placeholder="" onChangeText={(password) => this.setState({ password })} inputStyle={{ width: "100%" }}/>
 
 					<Button
 						buttonStyle={{ marginTop: 20 }}

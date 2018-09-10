@@ -97,15 +97,15 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <View style={{ paddingVertical: 20 }}>
+      <View style={{ paddingVertical: 1 }}>
       <ScrollView>
         <Card title="הרשמה">
           <FormLabel>כתובת אימייל</FormLabel>
-          <FormInput placeholder="" onChangeText={this.handleEmail} />
+          <FormInput placeholder="" onChangeText={this.handleEmail} inputStyle={{ width: "100%" }}/>
           <FormLabel>שם משתמש</FormLabel>
-          <FormInput placeholder="" onChangeText={this.handleUsername} />
+          <FormInput placeholder="" onChangeText={this.handleUsername} inputStyle={{ width: "100%" }}/>
           <FormLabel>סיסמה</FormLabel>
-          <FormInput secureTextEntry placeholder="" onChangeText={this.handlePassword} />
+          <FormInput secureTextEntry placeholder="" onChangeText={this.handlePassword} inputStyle={{ width: "100%" }}/>
           <Button
             buttonStyle={{ marginTop: 20 }}
             backgroundColor="#03A9F4"

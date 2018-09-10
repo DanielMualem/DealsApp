@@ -1,6 +1,7 @@
 
 // app/router.js
 import React, {Component} from 'react';
+import { Image } from "react-native";
 import { createStackNavigator, createTabNavigator, createSwitchNavigator } from "react-navigation";
 import { Card, Button, Text } from "react-native-elements";
 import { onSignOut } from "./auth";
@@ -138,24 +139,49 @@ export const SignedInTabOwner = createTabNavigator({
     screen: OwnerSignedIn,
     navigationOptions: {
       title: "המבצעים שלי",
+      tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('./images/menu2.png')}
+            style={[ {tintColor: tintColor, width: 24, height: 24}]}
+            />
+          ),
     }
   },
   AddDeal: {
     screen: AddDealStack,
     navigationOptions: {
-      title: "הוספת מבצע"
+      title: "הוספת מבצע",
+      tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('./images/add.png')}
+            style={[ {tintColor: tintColor, width: 24, height: 24}]}
+            />
+          ),
+
     }
   },
   Statistics: {
     screen: StatisticsStack,
     navigationOptions: {
-      title: "סטטיסטיקה"
+      title: "סטטיסטיקה",
+      tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('./images/stat.png')}
+            style={[ {tintColor: tintColor, width: 24, height: 24}]}
+            />
+          ),
     }
   },
   AllDeals: {
     screen: SignedIn,
     navigationOptions: {
-      title: "כל המבצעים"
+      title: "כל המבצעים",
+      tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('./images/menu2.png')}
+            style={[ {tintColor: tintColor, width: 24, height: 24}]}
+            />
+          ),
     }
   }
 });

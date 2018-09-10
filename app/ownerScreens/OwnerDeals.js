@@ -53,7 +53,7 @@ export default class AllDeals extends Component {
    */
   componentDidMount() {
     // Fetch Data
-    this.fetchData();
+    //this.fetchData();
   }
 
   /**

@@ -116,21 +116,21 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <View style={{ paddingVertical: 20 }}>
+      <View style={{ paddingVertical: 1 }}>
         <ScrollView>
           <Card title="OWNER -  SIGN UP">
             <FormLabel>Email</FormLabel>
-            <FormInput placeholder="Email address" onChangeText={this.handleEmail} />
+            <FormInput placeholder="Email address" onChangeText={this.handleEmail} inputStyle={{ width: "100%" }}/>
             <FormLabel>Username</FormLabel>
-            <FormInput placeholder="Username" onChangeText={this.handleUsername} />
+            <FormInput placeholder="Username" onChangeText={this.handleUsername} inputStyle={{ width: "100%" }}/>
             <FormLabel>Password</FormLabel>
-            <FormInput secureTextEntry placeholder="Password" onChangeText={this.handlePassword} />
+            <FormInput secureTextEntry placeholder="Password" onChangeText={this.handlePassword} inputStyle={{ width: "100%" }}/>
             <FormLabel>Mobile</FormLabel>
-            <FormInput placeholder="Mobile" onChangeText={this.handleMobile} />
+            <FormInput placeholder="Mobile" onChangeText={this.handleMobile} inputStyle={{ width: "100%" }}/>
             <FormLabel>Store Name</FormLabel>
-            <FormInput placeholder="Store Name" onChangeText={this.handleStoreName} />
+            <FormInput placeholder="Store Name" onChangeText={this.handleStoreName} inputStyle={{ width: "100%" }}/>
             <FormLabel>Location</FormLabel>
-            <FormInput placeholder="Location" onChangeText={this.handleLocation} />
+            <FormInput placeholder="Location" onChangeText={this.handleLocation} inputStyle={{ width: "100%" }}/>
 
             <Button
               buttonStyle={{ marginTop: 20 }}
